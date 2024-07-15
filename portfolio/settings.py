@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-u1ifj(o4_3uctwp!fcrhg6@e41zx7qqmggcejdst4=#=z=w=p*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':"portfoli_db",
-        'USER' : 'postgres',
-        'PASSWORD':'admin',
+        'NAME':"portfolio_db",
+        'USER' : 'aimane',
+        'PASSWORD':'difaoui',
         'HOST': '127.0.0.1' ,
         'PORT' : '5432'
     }
@@ -121,8 +121,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT=os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR,'static')
 # Default primary key field type
+MEDIA_ROOT= os.path.join(BASE_DIR, '')
+MEDIA_URL= 'image/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
